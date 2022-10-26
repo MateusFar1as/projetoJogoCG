@@ -16,6 +16,7 @@ body > div {
     width: 430px;
     border-left: solid 2px rgb(255,255,255);
     border-right: solid 2px rgb(255,255,255);
+    background-color: #4d4d4d;
 }
 
 h1{
@@ -33,10 +34,8 @@ h1{
     position: relative;
     top: 89%;
     left: 180px;
-    background-color: rgb(255,255,255);
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
+    height: 83px;
+    width: 48px;
 }
 #jogador > img {
     height: 83px;
@@ -45,38 +44,25 @@ h1{
 
 #retangulo, #retangulo2 {
     width: 425px;
-    height: 20px;
-    background-color: rgb(255,0,0);
+    height: 30px;
+    background-image: url(cones.png);
     position: relative;
     margin-top: -34px;
 }
 #buraco, #buraco2 {
     width: 100px;
-    height: 20px;
-    background-color: rgb(0,0,0);
+    height: 30px;
+    background-color: #4d4d4d;
     position: relative;
-    margin-top: -20px;
+    margin-top: -30px;
 }
 
-#retangulo3 {
-    width: 425px;
-    height: 20px;
-    background-color: rgb(255,0,0);
-    position: relative;
-    top: 101%;
-   animation: cobrir 260s linear;
+.animacao {
+    animation: atingivel 1800ms infinite linear;
 }
 
-.animacao{
-    animation: atingivel 2000ms infinite linear;
-}
 
 @keyframes atingivel {
     0%{top:-15%}
     100%{top:103%}
-}
-
-@keyframes cobrir {
-    0%{transform: scaleY(0px); }
-    100%{transform: scaleY(100);}
 }

@@ -10,13 +10,17 @@ function addAnimacao2(){
     retangulo2.classList.add('animacao')
     buraco2.classList.add('animacao')
 }
-if(retangulo.classList != 'animacao'){
-    retangulo.classList.add('animacao')
-    buraco.classList.add('animacao')
-    setTimeout(addAnimacao2,1000)   
+function comecar(){
+    if(retangulo.classList != 'animacao'){
+        retangulo.classList.add('animacao')
+        buraco.classList.add('animacao')
+        setTimeout(addAnimacao2,900)   
+    }    
 }
+comecar()
 
 document.addEventListener('keydown',(e) => { 
+    comecar()
     const jogadorX = parseInt(window.getComputedStyle(jogador).getPropertyValue('left'))
     const jogadorY = parseInt(window.getComputedStyle(jogador).getPropertyValue('top'))
     switch (e.keyCode) {
@@ -46,13 +50,13 @@ document.addEventListener('keydown',(e) => {
 })
 
 buraco.addEventListener('animationiteration',() => {
-    let aleatorio = Math.floor(Math.random() * 380)
+    let aleatorio = Math.floor(Math.random() * 310)
     buraco.style.left = aleatorio + 'px'
     j++
     pontos.innerHTML = `Pontuação: ${j}`
 })
 buraco2.addEventListener('animationiteration',() => {
-    let aleatorio = Math.floor(Math.random() * 380)
+    let aleatorio = Math.floor(Math.random() * 310)
     buraco2.style.left = aleatorio + 'px'
     j++
     pontos.innerHTML = `Pontuação: ${j}`
@@ -70,7 +74,6 @@ setInterval(() => {
     const buracoY = parseInt(window.getComputedStyle(buraco).getPropertyValue('top'))
     const buracoX = parseInt(window.getComputedStyle(buraco).getPropertyValue('left'))
 
-    
     const retangulo2Width = parseInt(window.getComputedStyle(retangulo2).getPropertyValue('width'))
     const retangulo2Height = parseInt(window.getComputedStyle(retangulo2).getPropertyValue('height'))
     const retangulo2Y = parseInt(window.getComputedStyle(retangulo2).getPropertyValue('top'))
@@ -80,13 +83,7 @@ setInterval(() => {
     const buraco2Height = parseInt(window.getComputedStyle(buraco2).getPropertyValue('height'))
     const buraco2Y = parseInt(window.getComputedStyle(buraco2).getPropertyValue('top'))
     const buraco2X = parseInt(window.getComputedStyle(buraco2).getPropertyValue('left'))
-
-
-    const retangulo3Width = parseInt(window.getComputedStyle(retangulo3).getPropertyValue('width'))
-    const retangulo3Height = parseInt(window.getComputedStyle(retangulo3).getPropertyValue('height'))
-    const retangulo3Y = parseInt(window.getComputedStyle(retangulo3).getPropertyValue('top'))
-    const retangulo3X = parseInt(window.getComputedStyle(retangulo3).getPropertyValue('left'))
-
+    
     const jogadorWidth = parseInt(window.getComputedStyle(jogador).getPropertyValue('width'))
     const jogadorHeight = parseInt(window.getComputedStyle(jogador).getPropertyValue('height'))
     const jogadorY = parseInt(window.getComputedStyle(jogador).getPropertyValue('top'))
@@ -108,15 +105,15 @@ setInterval(() => {
             (jogadorX < retangulo2X + retangulo2Width && 
              jogadorX + jogadorWidth > retangulo2X &&
              jogadorY < retangulo2Y + retangulo2Height &&
-             jogadorY + jogadorHeight > retangulo2Y) ||
-             (jogadorX < retangulo3X + retangulo3Width && 
-                jogadorX + jogadorWidth > retangulo3X &&
-                jogadorY < retangulo3Y + retangulo3Height &&
-                jogadorY + jogadorHeight > retangulo3Y)){
+             jogadorY + jogadorHeight > retangulo2Y)){
             retangulo.classList.remove('animacao')
             buraco.classList.remove('animacao')
             retangulo2.classList.remove('animacao')
             buraco2.classList.remove('animacao')
             alert(`Você perdeu. Pontuação: ${j}`)
+            jogador.style.top = 89 + '%'
+            jogador.style.left = 180 + 'px'
+            pontos.innerHTML = `Pontuação: 0`
+            j = 0;
     }
 },0)
