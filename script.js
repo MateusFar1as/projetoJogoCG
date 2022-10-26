@@ -45,14 +45,19 @@ document.addEventListener('keydown',(e) => {
     }
 })
 
-setInterval(()=> {
-    let aleatorio = Math.floor(Math.random() * 390)
+buraco.addEventListener('animationiteration',() => {
+    let aleatorio = Math.floor(Math.random() * 380)
     buraco.style.left = aleatorio + 'px'
-}, 2000)
-setInterval(()=> {
-    let aleatorio2 = Math.floor(Math.random() * 390)
-    buraco2.style.left = aleatorio2 + 'px'
-}, 3000)
+    j++
+    pontos.innerHTML = `Pontuação: ${j}`
+})
+buraco2.addEventListener('animationiteration',() => {
+    let aleatorio = Math.floor(Math.random() * 380)
+    buraco2.style.left = aleatorio + 'px'
+    j++
+    pontos.innerHTML = `Pontuação: ${j}`
+})
+
 
 setInterval(() => {
     const retanguloWidth = parseInt(window.getComputedStyle(retangulo).getPropertyValue('width'))
@@ -115,11 +120,3 @@ setInterval(() => {
             alert(`Você perdeu. Pontuação: ${j}`)
     }
 },0)
-
-setInterval(() => {
-    if(i > 0){
-        j++;
-        i = 0;
-        pontos.innerHTML = `Pontuação: ${j}`
-    }
-}, 1000)

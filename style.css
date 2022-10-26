@@ -38,6 +38,10 @@ h1{
     width: 30px;
     border-radius: 50%;
 }
+#jogador > img {
+    height: 83px;
+    width: 48px;
+}
 
 #retangulo, #retangulo2 {
     width: 425px;
@@ -47,7 +51,7 @@ h1{
     margin-top: -34px;
 }
 #buraco, #buraco2 {
-    width: 80px;
+    width: 100px;
     height: 20px;
     background-color: rgb(0,0,0);
     position: relative;
@@ -60,7 +64,7 @@ h1{
     background-color: rgb(255,0,0);
     position: relative;
     top: 101%;
-   animation: cobrir 210s linear;
+   animation: cobrir 260s linear;
 }
 
 .animacao{
