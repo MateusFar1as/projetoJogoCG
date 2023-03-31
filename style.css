@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background-image: url(grama.png);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+body > div {
+    width: 430px;
+    border-left: solid 2px rgb(255,255,255);
+    border-right: solid 2px rgb(255,255,255);
+    background-color: #4d4d4d;
+}
+
+h1{
+    position: absolute;
+    color: rgb(255,255,255);
+}
+#pontos {
+    position: absolute;
+    margin-left: 182px;
+    margin-top: 1.6px;
+}
+
+#area {
+    cursor: none;
+    height: 100%;
+    width: 400px;
+}
+
+#jogador {
+    position: relative;
+    top: 89%;
+    left: 180px;
+    height: 83px;
+    width: 48px;
+}
+#jogador > img {
+    height: 93px;
+    width: 58px;
+}
+
+#retangulo, #retangulo2 {
+    width: 425px;
+    height: 30px;
+    background-image: url(cones.png);
+    position: relative;
+    margin-top: -34px;
+}
+#buraco, #buraco2 {
+    width: 100px;
+    height: 30px;
+    background-color: #4d4d4d;
+    position: relative;
+    margin-top: -30px;
+}
+
+.animacao {
+    animation: atingivel 2000ms infinite linear;
+}
+
+@keyframes atingivel {
+    0%{top:-15%}
+    100%{top:103%}
+}
